@@ -1,0 +1,25 @@
+[package]
+name = "rust-egui-seven-tasks"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+egui = "0.21"
+eframe = { version = "0.21", features = ["persistence"] }
+egui_extras = { version ="0.21", features = ["datepicker"]}
+chrono = "0.4"
+serde = { version = "1", features = ["derive"] } # You only need this if you want app persistence
+
+# native:
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tracing-subscriber = "0.3"
+
+# web:
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "0.1.6"
+tracing-wasm = "0.2"
+
+[[example]]
+name = "first"
+path = "src/first.rs"
