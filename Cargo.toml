@@ -23,3 +23,7 @@ tracing-wasm = "0.2"
 [[example]]
 name = "first"
 path = "src/first.rs"
+
+[[example]]
+name = "second"
+path = "src/second.rs"
