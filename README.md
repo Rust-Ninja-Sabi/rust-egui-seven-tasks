@@ -20,6 +20,12 @@ Temperature Converter
 
 <img src="img/task2.gif" width="400" align="left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+## task 3 .. third.rs
+
+Flight Booker
+
+<img src="img/task3.gif" width="400" align="left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 ```Rust
 
