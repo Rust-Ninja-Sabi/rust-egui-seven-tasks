@@ -26,6 +26,12 @@ Flight Booker
 
 <img src="img/task3.gif" width="400" align="left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+## task 4 .. fourth.rs
+
+Timer
+
+<img src="img/task4.gif" width="400" align="left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 ```Rust
 

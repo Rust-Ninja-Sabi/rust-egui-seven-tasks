@@ -31,3 +31,7 @@ path = "src/second.rs"
 [[example]]
 name = "third"
 path = "src/third.rs"
+
+[[example]]
+name = "fourth"
+path = "src/fourth.rs"
