@@ -32,6 +32,12 @@ Timer
 
 <img src="img/task4.gif" width="400" align="left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+## task 5 .. fifth.rs
+
+CRUD
+
+<img src="img/task5.gif" width="400" align="left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 ```Rust
 

@@ -9,7 +9,10 @@ egui = "0.21"
 eframe = { version = "0.21", features = ["persistence"] }
 egui_extras = { version ="0.21", features = ["datepicker"]}
 chrono = "0.4"
+emath = "*"
+random_name_generator = "0.3"
 serde = { version = "1", features = ["derive"] } # You only need this if you want app persistence
+
 
 # native:
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
@@ -35,3 +38,7 @@ path = "src/third.rs"
 [[example]]
 name = "fourth"
 path = "src/fourth.rs"
+
+[[example]]
+name = "fifth"
+path = "src/fifth.rs"
