@@ -190,7 +190,7 @@ fn main() {
     };
 
     eframe::run_native(
-        "7 tasks 5",
+        "CRUD",
         native_options,
         Box::new(|cc| Box::new( Task5App::new(cc))),
     );

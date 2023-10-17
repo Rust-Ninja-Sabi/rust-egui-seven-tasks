@@ -73,7 +73,7 @@ fn main() {
     };
 
     eframe::run_native(
-        "7 tasks 4",
+        "Timer",
         native_options,
         Box::new(|cc| Box::new( Task4App::new(cc))),
     );

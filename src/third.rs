@@ -86,7 +86,7 @@ fn main() {
     };
 
     eframe::run_native(
-        "7 tasks 3",
+        "Flight Booker",
         native_options,
         Box::new(|cc| Box::new( Task3App::new(cc))),
     );

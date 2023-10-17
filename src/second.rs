@@ -44,18 +44,23 @@ impl eframe::App for Task2App {
 
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.horizontal(|ui| {
-                let reponse_c = ui.text_edit_singleline( &mut self.c_value);
-                if reponse_c.changed() {
-                    self.f_value = Task2App::to_fahrenheit(&self.c_value)
-                }
-                ui.label(" Celsius = ");
-                let response_f = ui.text_edit_singleline( &mut self.f_value);
-                if response_f.changed() {
-                    self.c_value = Task2App::to_celsius(&self.f_value)
-                }
-                ui.label("Fahrenheit");
+            ui.vertical(|ui| {
+                ui.horizontal(|ui| {
+                    let reponse_c = ui.text_edit_singleline( &mut self.c_value);
+                    if reponse_c.changed() {
+                        self.f_value = Task2App::to_fahrenheit(&self.c_value)
+                    }
+                    ui.label(" Celsius = ");
+                });
+                ui.horizontal(|ui| {
+                    let response_f = ui.text_edit_singleline( &mut self.f_value);
+                    if response_f.changed() {
+                        self.c_value = Task2App::to_celsius(&self.f_value)
+                    }
+                    ui.label("Fahrenheit");
+                })
             })
+
         });
     }
 }
@@ -74,7 +79,7 @@ fn main() {
     };
 
     eframe::run_native(
-        "7 tasks 2",
+        "Temperature Conv",
         native_options,
         Box::new(|cc| Box::new( Task2App::new(cc))),
     );

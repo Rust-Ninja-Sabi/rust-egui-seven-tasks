@@ -1,6 +1,3 @@
-#![warn(clippy::all, rust_2018_idioms)]
-#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
-
 use eframe::epaint::Vec2;
 use eframe::Theme;
 
@@ -37,21 +34,19 @@ impl eframe::App for Task1App {
     }
 }
 
-// When compiling natively:
-#[cfg(not(target_arch = "wasm32"))]
 fn main() {
 
     let native_options = eframe::NativeOptions{
         default_theme: Theme::Light,
         initial_window_size: Option::from(
-            Vec2::new(40.0, 10.0)
+            Vec2::new(160.0, 20.0)
         ),
-        resizable: false,
+        resizable: true,
         ..Default::default()
     };
 
     eframe::run_native(
-        "7 tasks 1",
+        "Counter",
         native_options,
         Box::new(|cc| Box::new( Task1App::new(cc))),
     );
@@ -70,8 +65,7 @@ fn main() {
     eframe::start_web(
         "the_canvas_id", // hardcode it
         web_options,
-        Box::new(|cc| Box::new(eframe_template::Task1App::new(cc))),
+        Box::new(|cc| Box::new(eframe_template::Task4App::new(cc))),
     )
         .expect("failed to start eframe");
 }
-
