@@ -1,4 +1,3 @@
-use eframe::epaint::Vec2;
 use eframe::Theme;
 
 pub struct Task1App {
@@ -15,7 +14,7 @@ impl Default for Task1App {
 
 impl Task1App {
     /// Called once before the first frame.
-    pub fn new(cc: &eframe::CreationContext<'_>) -> Self {
+    pub fn new(_cc: &eframe::CreationContext<'_>) -> Self {
         Default::default()
     }
 }
@@ -34,22 +33,28 @@ impl eframe::App for Task1App {
     }
 }
 
-fn main() {
+fn main() -> eframe::Result {
 
     let native_options = eframe::NativeOptions{
         default_theme: Theme::Light,
-        initial_window_size: Option::from(
-            Vec2::new(160.0, 20.0)
-        ),
-        resizable: true,
+        viewport: egui::ViewportBuilder::default()
+            .with_inner_size([160.0, 20.0])
+            .with_resizable(true),
         ..Default::default()
     };
 
     eframe::run_native(
+        "First Task",
+        native_options,
+        Box::new(|cc| {
+            Ok(Box::<Task1App>::default())
+        }),
+    )
+    /*eframe::run_native(
         "Counter",
         native_options,
         Box::new(|cc| Box::new( Task1App::new(cc))),
-    );
+    );*/
 }
 
 // when compiling to web using trunk.

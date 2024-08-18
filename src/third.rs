@@ -1,7 +1,6 @@
 #![warn(clippy::all, rust_2018_idioms)]
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
 
-use eframe::epaint::Vec2;
 use eframe::Theme;
 
 use egui_extras::DatePickerButton;
@@ -74,22 +73,23 @@ impl eframe::App for Task3App {
 
 // When compiling natively:
 #[cfg(not(target_arch = "wasm32"))]
-fn main() {
+fn main() -> eframe::Result {
 
     let native_options = eframe::NativeOptions{
         default_theme: Theme::Light,
-        initial_window_size: Option::from(
-            Vec2::new(200.0, 40.0)
-        ),
-        resizable: true,
+        viewport: egui::ViewportBuilder::default()
+            .with_inner_size([200.0, 200.0])
+            .with_resizable(true),
         ..Default::default()
     };
 
     eframe::run_native(
         "Flight Booker",
         native_options,
-        Box::new(|cc| Box::new( Task3App::new(cc))),
-    );
+        Box::new(|cc| {
+            Ok(Box::<Task3App>::default())
+        }),
+    )
 }
 
 // when compiling to web using trunk.

@@ -181,19 +181,22 @@ impl Task5App {
 
 // When compiling natively:
 #[cfg(not(target_arch = "wasm32"))]
-fn main() {
+fn main() -> eframe::Result {
 
     let native_options = eframe::NativeOptions{
         default_theme: Theme::Light,
-        resizable: true,
+        viewport: egui::ViewportBuilder::default()
+            .with_resizable(true),
         ..Default::default()
     };
 
     eframe::run_native(
         "CRUD",
         native_options,
-        Box::new(|cc| Box::new( Task5App::new(cc))),
-    );
+        Box::new(|cc| {
+            Ok(Box::<Task5App>::default())
+        }),
+    )
 }
 
 // when compiling to web using trunk.

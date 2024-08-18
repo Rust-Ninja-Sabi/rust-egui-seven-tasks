@@ -67,22 +67,23 @@ impl eframe::App for Task2App {
 
 // When compiling natively:
 #[cfg(not(target_arch = "wasm32"))]
-fn main() {
+fn main() -> eframe::Result {
 
     let native_options = eframe::NativeOptions{
         default_theme: Theme::Light,
-        initial_window_size: Option::from(
-            Vec2::new(100.0, 10.0)
-        ),
-        resizable: true,
+        viewport: egui::ViewportBuilder::default()
+            .with_inner_size([100.0, 10.0])
+            .with_resizable(true),
         ..Default::default()
     };
 
     eframe::run_native(
         "Temperature Conv",
         native_options,
-        Box::new(|cc| Box::new( Task2App::new(cc))),
-    );
+        Box::new(|cc| {
+            Ok(Box::<Task2App>::default())
+        }),
+    )
 }
 
 // when compiling to web using trunk.
